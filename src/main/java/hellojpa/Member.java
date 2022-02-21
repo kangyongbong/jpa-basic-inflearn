@@ -2,15 +2,17 @@ package hellojpa;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="MBR")
+//@Table(name="MBR")
 public class Member {
 
     @Id
     private Long id;
+
+//    @Column(length=100)
     private String name;
+    private int age;
 
     public Member(Long id, String name) {
         this.id = id;
@@ -35,5 +37,13 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
