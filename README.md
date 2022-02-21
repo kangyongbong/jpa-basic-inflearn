@@ -32,3 +32,16 @@
 #### @Table
 - 엔티티와 메핑할 테이블 지정
 - name속성을 사용하여 테이블명 변경 가능
+
+#### 데이터베이스 스키마 자동 새성
+- DDL을 애플리케이션 실행 시정에 자동 생성
+- 운영보단 개발단계에서 사용 추천
+- create ( drop + create )
+- create-drop (create와 같지만 종료 시점에 drop)
+- update ( 변경분만 반영 alter / add colume만 가능 )
+- validate ( 엔티티와 테이블이 정상 메핑인지 확인 )  
+- none ( 사용하지 않음 )
+- 데이터베이스 방언별로 자동생성
+- 운영 장비에는 절대 create, create-drop, update 사용하면 안됨
+- 테스트 서버 및 운영서버에서 create, create-drop사용 시 데이터가 삭제됨
+- @Colume의 속성으로 length, unique 등 DDL생성 제약조건을 생성할 수 있음 
