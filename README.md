@@ -19,3 +19,16 @@
 - 영속성 컨텍스트를 비우지 않음
 - 영속성 컨텍스트를 db에 반영
 - transaction 단위가 중요
+
+### 엔티티 매핑
+#### @Entity
+- 객체와 테이블 매핑
+- @Entity가 붙은 클래스는 jpa가 관리
+- jpa를 사용해서 테이블과 매핑할 클래스는 @Entity필수
+- 기본 생성자 필수 (파라미터가 없는 public 또는 protected 생성자)
+- final, enum, interface, inner 사용 안됨
+- 저장할 필드에 final사용 안됨
+- name속성이 있지만 기본은 class name (기본값 사용 권장)
+#### @Table
+- 엔티티와 메핑할 테이블 지정
+- name속성을 사용하여 테이블명 변경 가능
