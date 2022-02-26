@@ -45,3 +45,21 @@
 - 운영 장비에는 절대 create, create-drop, update 사용하면 안됨
 - 테스트 서버 및 운영서버에서 create, create-drop사용 시 데이터가 삭제됨
 - @Colume의 속성으로 length, unique 등 DDL생성 제약조건을 생성할 수 있음 
+
+### 필드와 컬럼 매핑
+- create 어노테이션을 이용하여 타입을 지정할 수 있음
+- @Transient ( 생성 하지 않음 )
+- @Temporal ( 날짜 타입 )
+- @Enumerated ( enum 타입 )
+- @Lob ( BLOB, CLOB 타입 )
+- @Column ( 컬럼 )
+#### @Column ( 가장 많이 쓰임 )
+- name ( 필드와 매핑할 테이블 컬럼 )
+- updateble, insetble ( 컬럼을 변경 혹은 생성할 지 여부 )
+- nullable ( not null 제약 여부 )
+- unique ( unique 제약조건, 잘 사용안함 / 알수없는 임의의 데이터 세팅 / @Table에서 이름까지 세팅하여 설정 가능)
+- columnDefinition ( db 컬럼 정보를 직접 세팅 / 세팅한 문자가 ddl에 그대로 사용됨 / db별로 방언을 확인해야함 )
+- precision, scale ( 아주큰 숫자나 소수점에 사용 / bigdecimal 등 )
+- enum 사용 시 주의사항 ( default ORDINAL / ORDINAL = enum의 순서로 저장, integer로 생성 , STRING = 이름으로 저장, varchar로 생성)
+- ORDINAL사용하면 enum의 순서가 바뀌면 데이터가 꼬일 수 있음 ( STRING사용 필수 )
+- 
