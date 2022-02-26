@@ -44,8 +44,6 @@ public class jpaMain {
 //            System.out.println("findMemeber1 = " + findMemeber1.getId());
 //            System.out.println("findMember2 = " + findMember2.getId());
 
-
-
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
