@@ -93,7 +93,13 @@
     - 쿼리를 실행하기 전 seq를 먼저 호출하여 키를 가져옴
     - commit시 실제 쿼리 실행
     - buffer 사용 가능
-    - 
+    - 네트워크를 여러번 타야하는 성능이슈가 있을 수 있음
+      - allocationSize 옵션을 사용하면 미리 seq를 지정된 개수만큼 가져와서 메모리에서 사용가능
+      - 동시성 이슈를 해결할 수 있음
+      - insert를 여러번 하는 경우에 최초에 1회 실행( 확인용 ) 후 1회 추가 실행 ( 메모리 확보 )
+      - 그래서 최종 메모리상 seq 수는 allocationSize + 1 개
+      - 많은 수를 세팅하게 되면 application shutdown시 메모리 증발로 seq가 갑자기 뻥튀기 되는 문제발생
+      - 너무 많은 size를 세팅하면 안됨
 - TABLE ( 키 생성용 테이블 사용 , 모든 db사용 / TabelGenerator 필요 )
 - AUTO ( 방언에 따라 자동 지정 )
 #### @Table
