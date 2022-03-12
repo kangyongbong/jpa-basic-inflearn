@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-//@Table(name="MBR")
+@Table(name="MBR")
 public class Member {
 
     @Id // 기본키 매핑 수동매핑

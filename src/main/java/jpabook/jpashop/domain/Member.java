@@ -3,11 +3,12 @@ package jpabook.jpashop.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "SHOP_MEMBER")
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="MEMBER_ID")
+    @Column(name = "MEMBER_ID")
     private Long Id;
     private String name;
     private String city;
