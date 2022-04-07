@@ -39,8 +39,9 @@ public class Member {
         return team;
     }
 
-    public void setTeam(Team team) {
+    public void changeTeam(Team team) {
         this.team = team;
+        team.getMembers().add(this); // 양방향 세팅 시 실수로 인한 문제를 제거하기 위해
     }
 
 

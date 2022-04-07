@@ -23,8 +23,10 @@ public class JpaMain {
 
             Member member = new Member();
             member.setName("member1");
-            member.setTeam(team);
+            member.changeTeam(team);
             em.persist(member);
+
+            team.getMembers().add(member); // 역방향(주인이 아닌 방향)만 연관관계 설정
 
             em.flush();
             em.clear();
